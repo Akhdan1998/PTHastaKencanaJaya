@@ -36,8 +36,8 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-    CollectionReference users = firestore.collection('users');
+    // FirebaseFirestore firestore = FirebaseFirestore.instance;
+    // CollectionReference users = firestore.collection('users');
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -210,6 +210,7 @@ class _RegisterState extends State<Register> {
                       //   'email': email.text,
                       //   'password': password.text,
                       // });
+                      Get.to(Login());
                     } else {}
                   },
                   child: Container(

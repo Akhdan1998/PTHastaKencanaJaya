@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hastakencanajaya/Home.dart';
 import 'package:intl/intl.dart';
 import 'package:supercharged/supercharged.dart';
 
@@ -254,9 +255,7 @@ class _BiodataState extends State<Biodata> {
                         'job': job.text,
                         'birthday': birthday.text,
                       });
-                      nama.text = '';
-                      job.text = '';
-                      birthday.text = '';
+                      Get.to(HomePage());
                     } else {}
                   },
                   child: Container(

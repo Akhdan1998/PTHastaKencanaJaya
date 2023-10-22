@@ -45,7 +45,8 @@ class _HomePageState extends State<HomePage> {
         leading: Container(),
         actions: [
           IconButton(
-            onPressed: () {
+            onPressed: () async{
+              await FirebaseAuth.instance.signOut();
               Get.to(Login());
             },
             icon: Icon(
@@ -60,7 +61,7 @@ class _HomePageState extends State<HomePage> {
         scrollDirection: Axis.vertical,
         child: SafeArea(
           child: Container(
-            height: MediaQuery.of(context).size.height,
+            // height: MediaQuery.of(context).size.height,
             padding: EdgeInsets.only(left: 8, right: 8),
             child: Column(
               children: [
@@ -140,7 +141,6 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ],
                               ),
-                              // SizedBox(height: 20),
                               Row(
                                 children: [
                                   Text(
@@ -151,12 +151,48 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   Text(
-                                    'wkwk',
+                                    data['nama'],
                                     style: GoogleFonts.poppins().copyWith(
                                       fontSize: 14,
                                       color: 'FFFFFF'.toColor(),
                                     ),
                                   ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'Job : ',
+                                    style: GoogleFonts.poppins().copyWith(
+                                      fontSize: 14,
+                                      color: 'FFFFFF'.toColor(),
+                                    ),
+                                  ),
+                                  // Text(
+                                  //   data['nama'],
+                                  //   style: GoogleFonts.poppins().copyWith(
+                                  //     fontSize: 14,
+                                  //     color: 'FFFFFF'.toColor(),
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'Tanggal lahir : ',
+                                    style: GoogleFonts.poppins().copyWith(
+                                      fontSize: 14,
+                                      color: 'FFFFFF'.toColor(),
+                                    ),
+                                  ),
+                                  // Text(
+                                  //   data['nama'],
+                                  //   style: GoogleFonts.poppins().copyWith(
+                                  //     fontSize: 14,
+                                  //     color: 'FFFFFF'.toColor(),
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                             ],
