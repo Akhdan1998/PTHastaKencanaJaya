@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "502123520852",
+    "project_id": "hastakencanajaya-db524",
+    "storage_bucket": "hastakencanajaya-db524.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502123520852:android:f0d154984ceedfdec31ec1",
+        "android_client_info": {
+          "package_name": "com.tesAkhdan.hastakencanajaya"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACOtqUPtNgfJ4HpMMIs-a4zltoQacltY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
