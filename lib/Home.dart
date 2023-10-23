@@ -55,8 +55,42 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () async{
-              await FirebaseAuth.instance.signOut();
-              Get.to(Login());
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                      content: Text(
+                        'Yakin akan keluar?',
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          child: Text(
+                            'Tidak',
+                            style: GoogleFonts.poppins().copyWith(
+                              fontSize: 12,
+                              color: Colors.cyan,
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        TextButton(
+                          child: Text(
+                            'Ya',
+                            style: GoogleFonts.poppins().copyWith(
+                              fontSize: 12,
+                              color: Colors.cyan,
+                            ),
+                          ),
+                          onPressed: () async {
+                            await FirebaseAuth.instance.signOut();
+                            Get.to(Login());
+                          },
+                        ),
+                      ]);
+                },
+              );
             },
             icon: Icon(
               Icons.logout,
