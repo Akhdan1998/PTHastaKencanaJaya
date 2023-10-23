@@ -42,7 +42,16 @@ class _HomePageState extends State<HomePage> {
           'Home Page',
           style: GoogleFonts.poppins().copyWith(color: 'FFFFFF'.toColor()),
         ),
-        leading: Container(),
+        leading: IconButton(
+          onPressed: () async{
+            Get.to(Biodata());
+          },
+          icon: Icon(
+            Icons.person,
+            color: 'FFFFFF'.toColor(),
+            size: 20,
+          ),
+        ),
         actions: [
           IconButton(
             onPressed: () async{
@@ -88,37 +97,22 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'User Data',
                                     style: GoogleFonts.poppins()
                                         .copyWith(color: 'FFFFFF'.toColor()),
                                   ),
-                                  Row(
-                                    children: [
-                                      IconButton(
-                                        onPressed: () {
-                                          Get.to(Edit());
-                                        },
-                                        icon: Icon(
-                                          Icons.border_color,
-                                          color: 'FFFFFF'.toColor(),
-                                          size: 15,
-                                        ),
-                                      ),
-                                      IconButton(
-                                        onPressed: () {
-                                          Get.to(Biodata());
-                                        },
-                                        icon: Icon(
-                                          Icons.add,
-                                          color: 'FFFFFF'.toColor(),
-                                          size: 20,
-                                        ),
-                                      ),
-                                    ],
+                                  IconButton(
+                                    onPressed: () {
+                                      Get.to(Edit());
+                                    },
+                                    icon: Icon(
+                                      Icons.border_color,
+                                      color: 'FFFFFF'.toColor(),
+                                      size: 15,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -168,13 +162,13 @@ class _HomePageState extends State<HomePage> {
                                       color: 'FFFFFF'.toColor(),
                                     ),
                                   ),
-                                  // Text(
-                                  //   data['nama'],
-                                  //   style: GoogleFonts.poppins().copyWith(
-                                  //     fontSize: 14,
-                                  //     color: 'FFFFFF'.toColor(),
-                                  //   ),
-                                  // ),
+                                  Text(
+                                    data['job'],
+                                    style: GoogleFonts.poppins().copyWith(
+                                      fontSize: 14,
+                                      color: 'FFFFFF'.toColor(),
+                                    ),
+                                  ),
                                 ],
                               ),
                               Row(
@@ -186,13 +180,13 @@ class _HomePageState extends State<HomePage> {
                                       color: 'FFFFFF'.toColor(),
                                     ),
                                   ),
-                                  // Text(
-                                  //   data['nama'],
-                                  //   style: GoogleFonts.poppins().copyWith(
-                                  //     fontSize: 14,
-                                  //     color: 'FFFFFF'.toColor(),
-                                  //   ),
-                                  // ),
+                                  Text(
+                                    data['birthday'],
+                                    style: GoogleFonts.poppins().copyWith(
+                                      fontSize: 14,
+                                      color: 'FFFFFF'.toColor(),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ],
@@ -206,356 +200,356 @@ class _HomePageState extends State<HomePage> {
                         );
                       }
                     }),
-                SizedBox(height: 18),
-                //about
-                Container(
-                  padding:
-                      EdgeInsets.only(left: 27, top: 13, right: 14, bottom: 23),
-                  // alignment: Alignment.bottomLeft,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: '0E191F'.toColor(),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'About',
-                            style: GoogleFonts.poppins()
-                                .copyWith(color: 'FFFFFF'.toColor()),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                about = !about;
-                              });
-                            },
-                            child: (about == false)
-                                ? Icon(
-                                    Icons.expand_less,
-                                    color: Colors.white,
-                                  )
-                                : Icon(
-                                    Icons.expand_more,
-                                    color: Colors.white,
-                                  ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      (about == false)
-                          ? Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Akhdan Habibie',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
-                                ),
-                                Text(
-                                  'Flutter Developer dengan pengalaman pengembangan aplikasi/web, membantu proses desain dan pemeliharaan aplikasi dengan fokus pada peningkatan fitur yang efisien, dan mencari bug pada aplikasi/web perusahaan.',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                SizedBox(height: 10),
-                                //pendidikan
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Pendidikan',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15),
-                                    ),
-                                    Text(
-                                      'Institut Sains & Teknologi Nasional',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Text(
-                                      'Sarjana Komputer',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Text(
-                                      '2017 - 2021',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Text(
-                                      'IPK 3,32 / 4,0',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 12),
-                                //pengalaman
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Pengalaman Kerja',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15),
-                                    ),
-                                    Text(
-                                      'Junior Flutter Developer',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Text(
-                                      'Februari 2022 - Sekarang',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Text(
-                                      'Deskripsi Pekerjaan :',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Column(
-                                      children: [
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              '- ',
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width -
-                                                  88,
-                                              child: Text(
-                                                'Memantau proses jalannya aplikasi dan mengatasi bug atau error pada aplikasi',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              '- ',
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width -
-                                                  88,
-                                              child: Text(
-                                                'Menguji jalanya program dan berdiskusi dengan kelompok demi meningkatkan efektivitas aplikasi',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              '- ',
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width -
-                                                  88,
-                                              child: Text(
-                                                'Fokus dalam merancang, menguji, dan membangun aplikasi',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 12),
-                                //Skill
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Keahlian & Kompetensi',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15),
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          'Flutter/Dart',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        Text(
-                                          'Firebase',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        Text(
-                                          'Jira',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          'Android Studio',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        Text(
-                                          'Github',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        Text(
-                                          'Figma',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          'Visual Studio Code',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        Text(
-                                          'PHP myAdmin/SQL',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 12),
-                                //media sosial
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Media Sosial',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15),
-                                    ),
-                                    SizedBox(height: 5),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          width: 18,
-                                          height: 18,
-                                          child: Image.asset('assets/ig.png'),
-                                        ),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          'akhddan',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 5),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          width: 18,
-                                          height: 18,
-                                          child: Image.asset('assets/ig.png'),
-                                        ),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          'pendekargendut',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 5),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          width: 18,
-                                          height: 18,
-                                          child: Image.asset(
-                                            'assets/github.png',
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          'https://github.com/Akhdan1998',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 5),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          width: 18,
-                                          height: 18,
-                                          child: Image.asset(
-                                              'assets/linkedin.png'),
-                                        ),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          'akhdanhabibie',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            )
-                          : GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  about = !about;
-                                });
-                              },
-                              child: Center(
-                                child: Text(
-                                  'Open',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                            ),
-                    ],
-                  ),
-                ),
+                // SizedBox(height: 18),
+                // about
+                // Container(
+                //   padding:
+                //       EdgeInsets.only(left: 27, top: 13, right: 14, bottom: 23),
+                //   // alignment: Alignment.bottomLeft,
+                //   width: MediaQuery.of(context).size.width,
+                //   decoration: BoxDecoration(
+                //     borderRadius: BorderRadius.circular(16),
+                //     color: '0E191F'.toColor(),
+                //   ),
+                //   child: Column(
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [
+                //       Row(
+                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //         children: [
+                //           Text(
+                //             'About',
+                //             style: GoogleFonts.poppins()
+                //                 .copyWith(color: 'FFFFFF'.toColor()),
+                //           ),
+                //           GestureDetector(
+                //             onTap: () {
+                //               setState(() {
+                //                 about = !about;
+                //               });
+                //             },
+                //             child: (about == false)
+                //                 ? Icon(
+                //                     Icons.expand_less,
+                //                     color: Colors.white,
+                //                   )
+                //                 : Icon(
+                //                     Icons.expand_more,
+                //                     color: Colors.white,
+                //                   ),
+                //           ),
+                //         ],
+                //       ),
+                //       SizedBox(height: 20),
+                //       (about == false)
+                //           ? Column(
+                //               crossAxisAlignment: CrossAxisAlignment.start,
+                //               children: [
+                //                 Text(
+                //                   'Akhdan Habibie',
+                //                   style: TextStyle(
+                //                       color: Colors.white,
+                //                       fontWeight: FontWeight.bold,
+                //                       fontSize: 15),
+                //                 ),
+                //                 Text(
+                //                   'Flutter Developer dengan pengalaman pengembangan aplikasi/web, membantu proses desain dan pemeliharaan aplikasi dengan fokus pada peningkatan fitur yang efisien, dan mencari bug pada aplikasi/web perusahaan.',
+                //                   style: TextStyle(color: Colors.white),
+                //                 ),
+                //                 SizedBox(height: 10),
+                //                 //pendidikan
+                //                 Column(
+                //                   crossAxisAlignment: CrossAxisAlignment.start,
+                //                   children: [
+                //                     Text(
+                //                       'Pendidikan',
+                //                       style: TextStyle(
+                //                           color: Colors.white,
+                //                           fontWeight: FontWeight.bold,
+                //                           fontSize: 15),
+                //                     ),
+                //                     Text(
+                //                       'Institut Sains & Teknologi Nasional',
+                //                       style: TextStyle(color: Colors.white),
+                //                     ),
+                //                     Text(
+                //                       'Sarjana Komputer',
+                //                       style: TextStyle(color: Colors.white),
+                //                     ),
+                //                     Text(
+                //                       '2017 - 2021',
+                //                       style: TextStyle(color: Colors.white),
+                //                     ),
+                //                     Text(
+                //                       'IPK 3,32 / 4,0',
+                //                       style: TextStyle(color: Colors.white),
+                //                     ),
+                //                   ],
+                //                 ),
+                //                 SizedBox(height: 12),
+                //                 //pengalaman
+                //                 Column(
+                //                   crossAxisAlignment: CrossAxisAlignment.start,
+                //                   children: [
+                //                     Text(
+                //                       'Pengalaman Kerja',
+                //                       style: TextStyle(
+                //                           color: Colors.white,
+                //                           fontWeight: FontWeight.bold,
+                //                           fontSize: 15),
+                //                     ),
+                //                     Text(
+                //                       'Junior Flutter Developer',
+                //                       style: TextStyle(color: Colors.white),
+                //                     ),
+                //                     Text(
+                //                       'Februari 2022 - Sekarang',
+                //                       style: TextStyle(color: Colors.white),
+                //                     ),
+                //                     Text(
+                //                       'Deskripsi Pekerjaan :',
+                //                       style: TextStyle(color: Colors.white),
+                //                     ),
+                //                     Column(
+                //                       children: [
+                //                         Row(
+                //                           crossAxisAlignment:
+                //                               CrossAxisAlignment.start,
+                //                           children: [
+                //                             Text(
+                //                               '- ',
+                //                               style: TextStyle(
+                //                                   color: Colors.white),
+                //                             ),
+                //                             Container(
+                //                               width: MediaQuery.of(context)
+                //                                       .size
+                //                                       .width -
+                //                                   88,
+                //                               child: Text(
+                //                                 'Memantau proses jalannya aplikasi dan mengatasi bug atau error pada aplikasi',
+                //                                 style: TextStyle(
+                //                                     color: Colors.white),
+                //                               ),
+                //                             ),
+                //                           ],
+                //                         ),
+                //                         Row(
+                //                           crossAxisAlignment:
+                //                               CrossAxisAlignment.start,
+                //                           children: [
+                //                             Text(
+                //                               '- ',
+                //                               style: TextStyle(
+                //                                   color: Colors.white),
+                //                             ),
+                //                             Container(
+                //                               width: MediaQuery.of(context)
+                //                                       .size
+                //                                       .width -
+                //                                   88,
+                //                               child: Text(
+                //                                 'Menguji jalanya program dan berdiskusi dengan kelompok demi meningkatkan efektivitas aplikasi',
+                //                                 style: TextStyle(
+                //                                     color: Colors.white),
+                //                               ),
+                //                             ),
+                //                           ],
+                //                         ),
+                //                         Row(
+                //                           crossAxisAlignment:
+                //                               CrossAxisAlignment.start,
+                //                           children: [
+                //                             Text(
+                //                               '- ',
+                //                               style: TextStyle(
+                //                                   color: Colors.white),
+                //                             ),
+                //                             Container(
+                //                               width: MediaQuery.of(context)
+                //                                       .size
+                //                                       .width -
+                //                                   88,
+                //                               child: Text(
+                //                                 'Fokus dalam merancang, menguji, dan membangun aplikasi',
+                //                                 style: TextStyle(
+                //                                     color: Colors.white),
+                //                               ),
+                //                             ),
+                //                           ],
+                //                         ),
+                //                       ],
+                //                     ),
+                //                   ],
+                //                 ),
+                //                 SizedBox(height: 12),
+                //                 //Skill
+                //                 Column(
+                //                   crossAxisAlignment: CrossAxisAlignment.start,
+                //                   children: [
+                //                     Text(
+                //                       'Keahlian & Kompetensi',
+                //                       style: TextStyle(
+                //                           color: Colors.white,
+                //                           fontWeight: FontWeight.bold,
+                //                           fontSize: 15),
+                //                     ),
+                //                     Row(
+                //                       mainAxisAlignment:
+                //                           MainAxisAlignment.spaceBetween,
+                //                       children: [
+                //                         Text(
+                //                           'Flutter/Dart',
+                //                           style: TextStyle(color: Colors.white),
+                //                         ),
+                //                         Text(
+                //                           'Firebase',
+                //                           style: TextStyle(color: Colors.white),
+                //                         ),
+                //                         Text(
+                //                           'Jira',
+                //                           style: TextStyle(color: Colors.white),
+                //                         ),
+                //                       ],
+                //                     ),
+                //                     Row(
+                //                       mainAxisAlignment:
+                //                           MainAxisAlignment.spaceBetween,
+                //                       children: [
+                //                         Text(
+                //                           'Android Studio',
+                //                           style: TextStyle(color: Colors.white),
+                //                         ),
+                //                         Text(
+                //                           'Github',
+                //                           style: TextStyle(color: Colors.white),
+                //                         ),
+                //                         Text(
+                //                           'Figma',
+                //                           style: TextStyle(color: Colors.white),
+                //                         ),
+                //                       ],
+                //                     ),
+                //                     Row(
+                //                       mainAxisAlignment:
+                //                           MainAxisAlignment.spaceBetween,
+                //                       children: [
+                //                         Text(
+                //                           'Visual Studio Code',
+                //                           style: TextStyle(color: Colors.white),
+                //                         ),
+                //                         Text(
+                //                           'PHP myAdmin/SQL',
+                //                           style: TextStyle(color: Colors.white),
+                //                         ),
+                //                       ],
+                //                     ),
+                //                   ],
+                //                 ),
+                //                 SizedBox(height: 12),
+                //                 //media sosial
+                //                 Column(
+                //                   crossAxisAlignment: CrossAxisAlignment.start,
+                //                   children: [
+                //                     Text(
+                //                       'Media Sosial',
+                //                       style: TextStyle(
+                //                           color: Colors.white,
+                //                           fontWeight: FontWeight.bold,
+                //                           fontSize: 15),
+                //                     ),
+                //                     SizedBox(height: 5),
+                //                     Row(
+                //                       mainAxisAlignment:
+                //                           MainAxisAlignment.start,
+                //                       children: [
+                //                         Container(
+                //                           width: 18,
+                //                           height: 18,
+                //                           child: Image.asset('assets/ig.png'),
+                //                         ),
+                //                         SizedBox(width: 5),
+                //                         Text(
+                //                           'akhddan',
+                //                           style: TextStyle(color: Colors.white),
+                //                         ),
+                //                       ],
+                //                     ),
+                //                     SizedBox(height: 5),
+                //                     Row(
+                //                       mainAxisAlignment:
+                //                           MainAxisAlignment.start,
+                //                       children: [
+                //                         Container(
+                //                           width: 18,
+                //                           height: 18,
+                //                           child: Image.asset('assets/ig.png'),
+                //                         ),
+                //                         SizedBox(width: 5),
+                //                         Text(
+                //                           'pendekargendut',
+                //                           style: TextStyle(color: Colors.white),
+                //                         ),
+                //                       ],
+                //                     ),
+                //                     SizedBox(height: 5),
+                //                     Row(
+                //                       mainAxisAlignment:
+                //                           MainAxisAlignment.start,
+                //                       children: [
+                //                         Container(
+                //                           width: 18,
+                //                           height: 18,
+                //                           child: Image.asset(
+                //                             'assets/github.png',
+                //                             color: Colors.white,
+                //                           ),
+                //                         ),
+                //                         SizedBox(width: 5),
+                //                         Text(
+                //                           'https://github.com/Akhdan1998',
+                //                           style: TextStyle(color: Colors.white),
+                //                         ),
+                //                       ],
+                //                     ),
+                //                     SizedBox(height: 5),
+                //                     Row(
+                //                       mainAxisAlignment:
+                //                           MainAxisAlignment.start,
+                //                       children: [
+                //                         Container(
+                //                           width: 18,
+                //                           height: 18,
+                //                           child: Image.asset(
+                //                               'assets/linkedin.png'),
+                //                         ),
+                //                         SizedBox(width: 5),
+                //                         Text(
+                //                           'akhdanhabibie',
+                //                           style: TextStyle(color: Colors.white),
+                //                         ),
+                //                       ],
+                //                     ),
+                //                   ],
+                //                 ),
+                //               ],
+                //             )
+                //           : GestureDetector(
+                //               onTap: () {
+                //                 setState(() {
+                //                   about = !about;
+                //                 });
+                //               },
+                //               child: Center(
+                //                 child: Text(
+                //                   'Open',
+                //                   style: TextStyle(color: Colors.white),
+                //                 ),
+                //               ),
+                //             ),
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ),

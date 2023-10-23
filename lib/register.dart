@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:supercharged/supercharged.dart';
 
 import 'login.dart';
@@ -16,6 +18,9 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   final email = TextEditingController();
   final password = TextEditingController();
+  final nama = TextEditingController();
+  final job = TextEditingController();
+  final birthday = TextEditingController();
   final _formState = GlobalKey<FormState>();
   final LinearGradient _gradient = LinearGradient(
     colors: [
@@ -36,8 +41,8 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-    // FirebaseFirestore firestore = FirebaseFirestore.instance;
-    // CollectionReference users = firestore.collection('users');
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference users = firestore.collection('users');
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -66,7 +71,7 @@ class _RegisterState extends State<Register> {
           scrollDirection: Axis.vertical,
           child: Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            height: MediaQuery.of(context).size.height + 100,
             padding: EdgeInsets.only(left: 20, right: 20),
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -93,7 +98,6 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(height: 25),
                 TextFormField(
-                  focusNode: focusNode,
                   keyboardType: TextInputType.emailAddress,
                   style: TextStyle(
                     color: 'FFFFFF'.toColor(),
@@ -194,6 +198,159 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                 ),
+                SizedBox(height: 15),
+                TextFormField(
+                  textCapitalization: TextCapitalization.sentences,
+                  keyboardType: TextInputType.text,
+                  style: TextStyle(
+                    color: 'FFFFFF'.toColor(),
+                  ),
+                  cursorColor: 'FFFFFF'.toColor(),
+                  controller: nama,
+                  validator: (value) {
+                    if (value == '') {
+                      return 'Name cannot be empty!!';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(9)),
+                      borderSide: BorderSide(
+                        width: 1,
+                        color: Colors.transparent,
+                      ),
+                    ),
+                    fillColor: Colors.grey.withOpacity(0.10),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(9)),
+                      borderSide: BorderSide(
+                        width: 1,
+                        color: Colors.transparent,
+                      ),
+                    ),
+                    contentPadding:
+                    EdgeInsets.only(left: 10, top: 5, bottom: 5),
+                    hintStyle: GoogleFonts.poppins().copyWith(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.grey,
+                    ),
+                    hintText: 'Nama Lengkap',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(9),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 15),
+                TextFormField(
+                  keyboardType: TextInputType.text,
+                  style: TextStyle(
+                    color: 'FFFFFF'.toColor(),
+                  ),
+                  cursorColor: 'FFFFFF'.toColor(),
+                  controller: job,
+                  validator: (value) {
+                    if (value == '') {
+                      return 'Job cannot be empty!!';
+                    }
+                    return null;
+                  },
+                  textCapitalization: TextCapitalization.sentences,
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(9)),
+                      borderSide: BorderSide(
+                        width: 1,
+                        color: Colors.transparent,
+                      ),
+                    ),
+                    fillColor: Colors.grey.withOpacity(0.10),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(9)),
+                      borderSide: BorderSide(
+                        width: 1,
+                        color: Colors.transparent,
+                      ),
+                    ),
+                    contentPadding:
+                    EdgeInsets.only(left: 10, top: 5, bottom: 5),
+                    hintStyle: GoogleFonts.poppins().copyWith(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.grey,
+                    ),
+                    hintText: 'Pekerjaan',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(9),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 15),
+                TextFormField(
+                  style: TextStyle(
+                    color: 'FFFFFF'.toColor(),
+                  ),
+                  cursorColor: 'FFFFFF'.toColor(),
+                  controller: birthday,
+                  validator: (value) {
+                    if (value == '') {
+                      return 'Birthday cannot be empty!!';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(9)),
+                      borderSide: BorderSide(
+                        width: 1,
+                        color: Colors.transparent,
+                      ),
+                    ),
+                    fillColor:
+                    Colors.grey.withOpacity(0.10),
+                    filled: true,
+                    hintStyle: GoogleFonts.poppins()
+                        .copyWith(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w300,
+                      color: '989797'.toColor(),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(9)),
+                      borderSide: BorderSide(
+                        width: 1,
+                        color: Colors.transparent,
+                      ),
+                    ),
+                    contentPadding: EdgeInsets.only(
+                        left: 10, top: 5, bottom: 5),
+                    hintText: 'DD MM YYYY',
+                    border: OutlineInputBorder(
+                      borderRadius:
+                      BorderRadius.circular(9),
+                    ),
+                  ),
+                  onTap: () async {
+                    DateTime? pickeddate =
+                    await showDatePicker(
+                        context: context,
+                        initialDate:
+                        DateTime.now(),
+                        firstDate: DateTime(1945),
+                        lastDate: DateTime(2500));
+
+                    if (pickeddate != null) {
+                      setState(() {
+                        birthday.text =
+                            DateFormat('dd MM yyyy')
+                                .format(pickeddate);
+                      });
+                    }
+                  },
+                ),
                 SizedBox(height: 25),
                 GestureDetector(
                   onTap: () async {
@@ -206,10 +363,22 @@ class _RegisterState extends State<Register> {
                         email: email.text,
                         password: password.text,
                       );
-                      // users.add({
-                      //   'email': email.text,
-                      //   'password': password.text,
-                      // });
+                      users.add({
+                        'email': email.text,
+                        'password': password.text,
+                        'nama': nama.text,
+                        'job': job.text,
+                        'birthday': birthday.text,
+                      });
+                      Fluttertoast.showToast(
+                          msg: "Berhasil Registrasi",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.cyan,
+                          textColor: Colors.white,
+                          fontSize: 16.0
+                      );
                       Get.to(Login());
                     } else {}
                   },
